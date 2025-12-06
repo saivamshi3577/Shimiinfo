@@ -35,6 +35,25 @@
     animation: slideRight 1s ease-out 0.1s forwards; 
     opacity: 0;
 }
+@keyframes slideInFeature {
+    from { opacity: 0; transform: translateX(-15px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+
+.animate-feature-stagger {
+    animation: slideInFeature 0.4s ease-out forwards;
+    opacity: 0; /* Important: Start hidden */
+}
+
+
+.service-icon-placeholder {
+    display: block;
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center; /* Center the icon above the content */
+}
 
 
 /* =================================
@@ -183,32 +202,59 @@
    3. TECHNOLOGY GRID
    ================================= */
 .tech-stack-services-section {
-    padding: 80px 0;
-    background-color: var(--bg-light);
-    text-align: center;
+ padding: 80px 0;
+ background-color: var(--bg-light);
+ text-align: center;
 }
 
 .stack-subtitle {
-    font-size: 1.1rem;
-    color: var(--light-text-color);
-    margin: -40px auto 40px;
-    max-width: 600px;
+ font-size: 1.1rem;
+ color: var(--light-text-color);
+ margin: -40px auto 40px;
+max-width: 600px;
 }
 
 .tech-stack-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 30px;
+   gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+   
     max-width: 1100px;
     margin: 0 auto;
 }
+.service-icon-image-wrapper {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
+.service-icon-image {
+    width: 500px; /* Adjust size for the tab icons */
+    height: 500px;
+    object-fit: contain;
+}
+
+/* 🎯 NEW IMAGE STYLES FOR TECH STACK ICONS */
+.tech-icon {
+    /* Kept this wrapper, but made it use the image */
+ font-size: 3rem; /* Original size if it were text */
+ display: block;
+ margin-bottom: 10px;
+ color: var(--secondary-color);
+}
+
+.tech-icon-image {
+    width: 100px; /* Smaller size for the technology stack cards */
+    height: 100px;
+    object-fit: contain;
+    /* Optional: Filter to colorize if using monochrome icons */
+    /* filter: grayscale(100%) brightness(50%) sepia(1) hue-rotate(180deg) saturate(3); */
+}
 .tech-card {
     padding: 20px;
-    background-color: var(--white-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
+ background-color: var(--white-color);
+ border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+transition: transform 0.3s;
 }
 
 .tech-card:hover {
@@ -216,12 +262,7 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.tech-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 10px;
-    color: var(--secondary-color);
-}
+
 
 .tech-card h4 {
     font-size: 1.2rem;

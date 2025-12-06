@@ -5,6 +5,18 @@
   padding-top: 60px;
 }
 
+
+.footer-social-links img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  transition: 0.3s ease;
+}
+
+.footer-social-links img:hover {
+  transform: scale(1.1);
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 2fr;
@@ -46,8 +58,8 @@
   display: inline-block;
   width: 30px;
   height: 30px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--white-color);
+  
+
   text-align: center;
   line-height: 30px;
   border-radius: 50%;

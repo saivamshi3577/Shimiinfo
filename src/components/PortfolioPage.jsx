@@ -4,13 +4,13 @@ import Header from './Header';
 import Footer from './Footer'; 
 
 // --- Image Imports (assuming standard asset structure) ---
-import Project1 from '../assets/project-web.jpg';
-import Project2 from '../assets/project-mobile.jpg';
-import Project3 from '../assets/project-hr.jpg';
-import Project4 from '../assets/project-data.jpg';
-import Project5 from '../assets/project-mobile.jpg';
-import Project6 from '../assets/project-mobile.jpg';
-import CaseStudyFocusImage from '../assets/project-mobile.jpg'; // New image import
+import Project1 from '../assets/icon-web.png';
+import Project2 from '../assets/icon-mobile.png';
+import Project3 from '../assets/icon-hr.png';
+import Project4 from '../assets/post4.jpg';
+import Project5 from '../assets/post5.jpg';
+import Project6 from '../assets/post7.jpg';
+import CaseStudyFocusImage from '../assets/process-image.jpg'; // New image import
 
 // --------------------------------------------------------
 // DATA ARRAYS (EXPANDED)

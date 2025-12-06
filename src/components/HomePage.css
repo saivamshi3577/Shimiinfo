@@ -57,7 +57,132 @@
   align-items: center;
   gap: 40px;
 }
+.hero-section {
+ background-color: var(--bg-light);
+ padding: 100px 0;
+overflow: hidden;
+ position: relative;
+}
 
+/* ... (Existing bubble styling remains the same) ... */
+
+.hero-content {
+ position: relative;
+ z-index: 2;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ gap: 40px;
+}
+
+.hero-left {
+   flex: 1;
+ max-width: 50%;
+}
+
+.animate-slide-left {
+ animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+ opacity: 0;
+}
+
+.hero-pre-title-alt {
+ color: var(--primary-color);
+ font-size: 1rem;
+ font-weight: 600;
+ margin-bottom: 5px;
+ display: inline-block;
+}
+
+.hero-left h1 {
+ margin-bottom: 20px;
+}
+
+/* --- NEW STYLE: Hero Sub-Text --- */
+.hero-sub-text {
+    font-size: 1.15rem;
+    color: var(--secondary-color);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+/* -------------------------------- */
+
+.quote-box {
+ border-left: 3px solid var(--primary-color);
+ padding: 15px 20px;
+ margin-bottom: 30px;
+ background-color: var(--white-color);
+ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.quote-box p {
+ font-size: 0.95rem;
+ color: var(--secondary-color);
+ font-weight: 600;
+ margin-bottom: 10px;
+}
+
+/* Updated to support dynamic single highlight */
+.quote-highlights {
+ display: flex;
+ gap: 15px;
+ flex-wrap: wrap;
+    min-height: 25px; /* Ensures the box doesn't collapse during transition */
+}
+
+/* --- NEW STYLE: Animated Highlight Text --- */
+.animated-highlight-text {
+ font-size: 0.85rem;
+ color: var(--white-color);
+ background-color: var(--primary-color); /* Primary color for better contrast */
+ padding: 5px 10px;
+ border-radius: 50px; /* Pill shape */
+ font-weight: 700;
+    
+    /* Animation Properties */
+    animation: fadeAndSlide 2s ease-out infinite; 
+    display: inline-block;
+}
+/* ------------------------------------------- */
+
+.hero-right {
+flex: 1;
+height: 450px;
+position: relative;
+overflow: hidden;
+ /* New Image Wrapper Animation Setup */
+
+ padding: 5px; /* Padding for the glow effect */
+
+ background-size: 300% 300%;
+ animation: borderGlow 6s ease-in-out infinite alternate;
+}
+
+/* ... (Rest of the Hero Section and other sections remain the same) ... */
+
+
+/* =================================
+   GLOBAL KEYFRAMES (Add these at the end of your CSS file)
+   ================================= */
+
+/* Animation for Hero Service Highlight (Fade and Slide) */
+@keyframes fadeAndSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
 .hero-left {
   flex: 1;
   max-width: 50%;
@@ -109,6 +234,34 @@
     border-radius: 3px;
     border: 1px solid #eee;
 }
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.info-icon {
+  font-size: 22px;
+  color: #022447;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.social-links img {
+  width: 35px;
+  border-radius: 30%;
+  height: 35px;
+  transition: 0.3s;
+}
+
+.social-links img:hover {
+  transform: scale(1.1);
+}
 
 .hero-right {
 flex: 1;
@@ -136,10 +289,6 @@ flex: 1;
  opacity: 0;
 }
 
-
-/* =================================
-   SUB-HERO / FEATURE GROUP
-   ================================= */
 .sub-hero-section {
   padding: 80px 0;
   background-color: var(--white-color);
@@ -198,18 +347,14 @@ flex: 1;
   left: 0;
 }
 
-
-/* =================================
-   OUR SERVICES SECTION (3D Card Flip)
-   ================================= */
 .services-section {
-  padding: 80px 0;
-  background-color: var(--bg-light);
+ padding: 80px 0;
+ background-color: var(--bg-light);
 }
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   perspective: 1000px; 
 }
@@ -373,9 +518,6 @@ flex: 1;
 }
 
 
-/* =================================
-   OUR LEADERS SECTION
-   ================================= */
 .leaders-section {
   padding: 80px 0;
   background-color: var(--white-color);
@@ -421,134 +563,7 @@ flex: 1;
 }
 
 
-/* =================================
-   TESTIMONIALS SECTION (Carousel)
-   ================================= */
-.testimonials-section {
-  padding: 80px 0;
-  background-color: var(--bg-light);
-}
 
-.testimonials-carousel-container {
-    position: relative;
- padding-bottom: 40px;
- width: 100%;
-    /* Keep the grid layout for the carousel and the small card side-by-side */
- grid-template-columns: 2fr 1fr;
- display: grid;
-gap: 30px;
-    margin-top: 40px;
-}
-
-.testimonials-carousel-wrapper {
-    overflow: hidden;
-    grid-column: 1 / 2;
-}
-
-.testimonials-carousel-track {
-    display: flex;
-    width: calc(100% * 4);
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.carousel-slide {
-    flex: 0 0 100%; 
-    max-width: 100%;
-    padding-right: 30px;
-}
-
-.testimonial-card {
-  background-color: var(--white-color);
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.testimonial-card.small-card {
-    grid-column: 2 / 3; 
-    height: 300px; 
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-style: italic;
-    font-weight: 600;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.quote-icon {
-  font-size: 3rem;
-  color: var(--primary-color);
-  line-height: 1;
-  margin-bottom: 15px;
-}
-
-.quote-text {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--secondary-color);
-  margin-bottom: 20px;
-}
-
-.author-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.author-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.author-info > div {
-  display: flex;
-  flex-direction: column;
-}
-
-.author-name {
-  font-weight: 700;
-  color: var(--secondary-color);
-}
-
-.author-role {
-  font-size: 0.9rem;
-  color: var(--light-text-color);
-}
-
-.carousel-dots {
-    position: absolute;
-    bottom: 0;
-    left: calc(33.333% / 2);
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-    grid-column: 1 / 2;
-}
-
-.dot {
-    width: 10px;
-    height: 10px;
-    background-color: var(--light-text-color);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.dot.active {
-    background-color: var(--primary-color);
-    transform: scale(1.2);
-}
-
-
-/* =================================
-   NEW FAQ SECTION (Animated Accordion)
-   ================================= */
 .faq-section {
     padding: 80px 0;
     background-color: var(--white-color);
@@ -703,7 +718,7 @@ gap: 30px;
   display: inline-block;
   width: 40px;
   height: 40px;
-  background-color: var(--primary-color);
+ 
   color: var(--secondary-color);
   text-align: center;
   line-height: 40px;

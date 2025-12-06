@@ -1,0 +1,230 @@
+/* ======================================================= */
+/* === ROOT VARIABLES (Assume these are available globally) === */
+/* ======================================================= */
+/* :root {
+    --primary-color: #f7a800; 
+    --secondary-color: #0b1a38; 
+    --bg-light: #f4f6f8;
+    --white-color: #ffffff;
+    --light-text-color: #6c757d;
+} */
+
+
+/* ======================================================= */
+/* === GLOBAL ANIMATIONS (Define these or import them) === */
+/* ======================================================= */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+.animate-slide-left { animation: slideInLeft 0.8s ease-out forwards; opacity: 0; }
+.animate-slide-right { animation: slideInRight 0.8s ease-out forwards; opacity: 0; }
+.animate-zoom-in { animation: zoomIn 0.8s ease-out forwards; opacity: 0; }
+
+
+/* ======================================================= */
+/* === 1. HERO HEADER SECTION === */
+/* ======================================================= */
+.contact-hero-section {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.contact-hero-section h1 {
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact-hero-section .pre-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+/* ======================================================= */
+/* === 2. FORM AND INFO GRID SECTION === */
+/* ======================================================= */
+.contact-form-section {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr; /* Form is wider than info */
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* --- Form Styles --- */
+.form-wrapper {
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-wrapper h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.contact-form select {
+    /* Style for default placeholder color */
+    color: var(--light-text-color); 
+}
+.contact-form select:valid {
+    /* Style when an actual value is selected */
+    color: var(--secondary-color);
+}
+
+/* --- Info Styles --- */
+.info-wrapper {
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.info-wrapper h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.country-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.registration-info {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.separator {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 20px 0;
+}
+
+.contact-detail-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.detail-icon {
+    /* Styles for Fa icons or image placeholders */
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-right: 15px;
+    /* Alignment for placeholder text/icons */
+    width: 25px; 
+    text-align: center;
+}
+
+.contact-detail-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+
+/* ======================================================= */
+/* === 3. CTA SECTION === */
+/* ======================================================= */
+.contact-cta-section {
+    padding: 60px 0;
+    background-color: var(--white-color);
+    text-align: center;
+}
+
+.contact-cta-section .cta-content {
+    background-color: var(--bg-light);
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+
+.contact-cta-section h2 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.contact-cta-section p {
+    margin-bottom: 25px;
+    color: var(--light-text-color);
+}
+
+
+/* ======================================================= */
+/* === RESPONSIVENESS === */
+/* ======================================================= */
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Stack form and info vertically */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-hero-section {
+        padding: 60px 0;
+    }
+    .contact-hero-section h1 {
+        font-size: 2.5rem;
+    }
+    .form-wrapper, .info-wrapper {
+        padding: 30px;
+    }
+}
