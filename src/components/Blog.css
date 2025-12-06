@@ -148,7 +148,7 @@
 
 .content-grid-wrapper {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr;
     gap: 50px;
 }
 
@@ -162,6 +162,7 @@
 .category-filters {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     gap: 10px;
     margin-bottom: 40px;
 }

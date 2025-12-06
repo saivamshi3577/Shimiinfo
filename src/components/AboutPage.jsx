@@ -75,7 +75,7 @@ const AboutPage = () => {
                             Shimi-Infotech is founded on the belief that digital transformation should be accessible, effective, and perfectly aligned with business goals. We are a team of strategic thinkers, designers, and developers dedicated to delivering robust Web, Mobile, and HR solutions that drive tangible growth.
                         </p>
                         <p className="contact-prompt">
-                            Get Instant Professional Advice: <a href="tel:+15551234567"> +1 555 123 4567 </a>
+                            Get Instant Professional Advice: <a href="tel:+15551234567">   +44-208 637 3036 </a>
                         </p>
                     </div>
                 </div>
@@ -154,14 +154,14 @@ const AboutPage = () => {
             </section>
 
             {/* --- 8. CTA / Video Prompt --- */}
-            <section className="cta-video-section">
+{/*             <section className="cta-video-section">
                 <div className="container cta-content">
                     <h2>"Some of the History of Our Company is that We are Catching up Through Video"</h2>
                     <button className="primary-btn dark-btn pulse-on-hover">
                         Watch Our Story &rarr;
                     </button>
                 </div>
-            </section>
+            </section> */}
 
             <Footer />
 

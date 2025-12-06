@@ -141,12 +141,12 @@ const BlogPage = () => {
                     </div>
 
                     {/* B. Sidebar */}
-                    <div className="blog-sidebar animate-slide-in-right">
+{/*                     <div className="blog-sidebar animate-slide-in-right">
                         
                         <div className="sidebar-widget">
                             <h4>Categories</h4>
                             <ul className="category-list">
-                                {/* Added All count logic back */}
+                              
                                 <li onClick={() => setActiveFilter('All')}>
                                     All <span>({allBlogPosts.length - 1})</span>
                                 </li>
@@ -159,26 +159,26 @@ const BlogPage = () => {
                         </div>
 
                         <div className="sidebar-widget">
-                            {/* ... (Recent Posts content remains the same) ... */}
+                           
                         </div>
 
                         <div className="sidebar-widget newsletter-widget">
-                            {/* ... (Newsletter content remains the same) ... */}
+                            
                         </div>
 
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
 
             {/* --- 4. Final CTA --- */}
-            <section className="cta-banner cta-blog-page">
+{/*             <section className="cta-banner cta-blog-page">
                 <div className="container cta-content">
                     <h2>Got a Topic Idea?</h2>
                     <p>Suggest an article or contribute your expertise to our community.</p>
                     <button className="primary-btn dark-btn pulse-on-hover">Submit Idea</button>
                 </div>
-            </section>
+            </section> */}
 
             <Footer />
         </div>

@@ -70,7 +70,7 @@ const services = [
 ];
 
 const expertiseData = [
-    { title: '4 Years', subtitle: 'of Experience', detail: 'In various industries, delivering top-tier solutions globally.' },
+    { title: '13 Years', subtitle: 'of Experience', detail: 'In various industries, delivering top-tier solutions globally.' },
     { title: '98%', subtitle: 'Success Rate', detail: 'Of projects delivered on time and within budget.' },
     { title: '24/7', subtitle: 'Support', detail: 'Our dedicated team is always ready to assist you.' },
     { title: '50+', subtitle: 'Team Members', detail: 'A global network of experts ready for your next project.' },
@@ -87,24 +87,31 @@ const blogPosts = [
   { title: 'Agile vs. Waterfall: Which to Choose?', author: 'John Doe', date: 'Oct 15, 2024', image: Blog2 },
   { title: '5 Principles of Good UX', author: 'Jane S.', date: 'Oct 10, 2024', image: Blog3 },
 ];
-
 const faqData = [
-  {
-    question: "What types of solutions does Shimi-Infotech specialize in?",
-    answer: "We specialize in end-to-end digital solutions, including custom web development, scalable mobile application development (iOS/Android), and robust HR and enterprise software solutions."
-  },
-  {
-    question: "How long does a typical custom software project take?",
-    answer: "The timeline varies significantly based on complexity, but a standard MVP (Minimum Viable Product) for a web or mobile app typically ranges from 3 to 6 months after the discovery phase is complete."
-  },
-  {
-    question: "What is your development process?",
-    answer: "We follow a highly collaborative Agile methodology, including phases for Discovery (Strategy & UX), Design, Iterative Development, Quality Assurance (QA), Deployment, and post-launch Maintenance & Support."
-  },
-  {
-    question: "Do you offer post-launch support and maintenance?",
-    answer: "Yes, we offer comprehensive ongoing support packages, including bug fixes, security updates, feature enhancements, and system monitoring to ensure long-term stability."
-  }
+  {
+    question: "What types of solutions does Shimi-Infotech specialize in?",
+    answer: "We specialize in end-to-end digital solutions, including custom web development, scalable mobile application development (iOS/Android), robust HR and enterprise software solutions, as well as  professional IT Staffing and expert IT Consulting services ."
+  },
+  {
+    question: "Do you offer IT staffing services?",
+    answer: "Yes. We provide flexible IT staffing solutions, including direct-hire placement, contract-to-hire, and temporary contract staffing for roles like Developers, QA Engineers, Project Managers, and System Administrators, helping businesses quickly scale their technical teams."
+  },
+  {
+    question: "What does your IT Consulting service entail?",
+    answer: "Our IT Consulting service provides strategic guidance on technology roadmaps, cloud strategy, digital transformation, security audits, and infrastructure optimization. We help clients align their technology investments with their business goals to maximize efficiency and innovation."
+  },
+  {
+    question: "How long does a typical custom software project take?",
+    answer: "The timeline varies significantly based on complexity, but a standard MVP (Minimum Viable Product) for a web or mobile app typically ranges from 3 to 6 months after the discovery phase is complete."
+  },
+  {
+    question: "What is your development process?",
+    answer: "We follow a highly collaborative Agile methodology, including phases for Discovery (Strategy & UX), Design, Iterative Development, Quality Assurance (QA), Deployment, and post-launch Maintenance & Support."
+  },
+  {
+    question: "Do you offer post-launch support and maintenance?",
+    answer: "Yes, we offer comprehensive ongoing support packages, including bug fixes, security updates, feature enhancements, and system monitoring to ensure long-term stability."
+  }
 ];
 
 
@@ -135,35 +142,46 @@ const FAQItem = ({ question, answer, index, activeIndex, setActiveIndex }) => {
 // New Animated Text Component
 // --------------------------------------------------------
 const AnimatedServiceHighlight = () => {
+    // List of services to cycle through
     const highlights = [
-        'Web Solutions',
-        'HR Solutions',
-        'Mobile Apps',
-        'IT Consulting', // NEW
-        'IT Staffing',   // NEW
+        'Web Development', 
+        'Mobile Applications',
+        'IT Staffing',      
+        'IT Consulting',     
+        'Enterprise Software',
     ];
     const [currentHighlightIndex, setCurrentHighlightIndex] = useState(0);
 
     useEffect(() => {
+        // Cycles the highlight index every 2 seconds (2000ms)
         const interval = setInterval(() => {
             setCurrentHighlightIndex((prevIndex) => (prevIndex + 1) % highlights.length);
-        }, 2000); // Change highlight every 2 seconds
+        }, 2000); 
 
         return () => clearInterval(interval);
     }, [highlights.length]);
 
+    // Key on the <span> forces the CSS animation (typing/fade) to re-trigger
+    const animatedService = (
+        <span 
+            key={currentHighlightIndex} 
+            className="animated-service-text typing-animation"
+        >
+            {highlights[currentHighlightIndex]}
+        </span>
+    );
+    
+    // The main sentence structure
     return (
-        <div className="quote-highlights">
-            {/* The animated service highlight */}
-            <span className="animated-highlight-text">
-                - {highlights[currentHighlightIndex]}
-            </span>
-            {/* You might want to show some static ones too, or make the animation cover all */}
-            {/* For this example, let's keep one animated */}
+        <div className="animated-sentence-box">
+            <h3 className="animated-sentence-p">
+                We design, build, and scale custom &nbsp; 
+                {animatedService} 
+                &nbsp; solutions to power your business growth.
+            </h3>
         </div>
     );
 };
-
 
 // --------------------------------------------------------
 // 3. REACT COMPONENT
@@ -182,39 +200,36 @@ const HomePage = () => {
       <Header />
 
    
-      <section className="hero-section">
-        
-        {/* Animated Bubble Elements */}
-        <div className="hero-bubble bubble-1"></div>
-        <div className="hero-bubble bubble-2"></div>
-        <div className="hero-bubble bubble-3"></div>
-        <div className="hero-bubble bubble-4"></div>
+   <section className="hero-section">
+    
+    {/* Animated Bubble Elements */}
+    <div className="hero-bubble bubble-1"></div>
+    <div className="hero-bubble bubble-2"></div>
+    <div className="hero-bubble bubble-3"></div>
+    <div className="hero-bubble bubble-4"></div>
 
-        <div className="container hero-content">
-          <div className="hero-left animate-slide-left">
+    <div className="container hero-content">
+        <div className="hero-left animate-slide-left">
             <span className="hero-pre-title-alt">\ Future-Proof Your Business \</span>
             <h2>Unlock Better Insights For Sustainable Business Growth </h2>
             
-            {/* --- NEW SENTENCE ADDED HERE --- */}
-            <p className="hero-sub-text">
-                Empower your enterprise with scalable technology solutions and strategic IT partnerships designed for the digital era.
-            </p>
-            {/* --- /NEW SENTENCE --- */}
-
-            <div className="quote-box">
-                <p>We deliver comprehensive IT solutions, specializing in:</p>
-                {/* Replaced static list with Animated Component */}
-                <AnimatedServiceHighlight />
-            </div>
+            <p className="hero-sub-text">
+                Empower your enterprise with scalable technology solutions and strategic IT partnerships designed for the digital era.
+            </p>
+            
+            {/* Removed quote-box, integrated Animated Highlight directly */}
+            <AnimatedServiceHighlight />
+        
 
             <button className="primary-btn pulse-on-hover">View Our Solutions</button>
-          </div>
-
-          <div className="hero-right">
-            <img src={HeroMainImage} alt="Professional smiling woman" className="hero-image animate-fade-in" />
-          </div>
         </div>
-      </section>
+
+        <div className="hero-right">
+            {/* The image remains in the right column */}
+            <img src={HeroMainImage} alt="Professional smiling woman" className="hero-image animate-fade-in" />
+        </div>
+    </div>
+</section>
 
       {/* ------------------- 3. SUB-HERO/FEATURE GROUP ------------------- */}
       <section className="sub-hero-section">
@@ -411,13 +426,13 @@ const HomePage = () => {
       </section>
 
       {/* ------------------- 12. CTA BANNER ------------------- */}
-      <section className="cta-banner">
+{/*       <section className="cta-banner">
         <div className="container cta-content">
           <h2>Ready to Start Your  Next Project ?</h2>
           <p>Talk to our experts today and turn your vision into reality.</p>
           <button className="primary-btn dark-btn bounce-on-hover">Schedule a Call</button>
         </div>
-      </section>
+      </section> */}
 
       {/* ------------------- 13. FOOTER ------------------- */}
       <Footer />

@@ -10,16 +10,23 @@ import Project3 from '../assets/icon-hr.png';
 import Project4 from '../assets/post4.jpg';
 import Project5 from '../assets/post5.jpg';
 import Project6 from '../assets/post7.jpg';
+// New imports for Staffing and Consulting projects (reusing existing images for example)
+import Project7 from '../assets/post4.jpg'; 
+import Project8 from '../assets/post5.jpg'; 
 import CaseStudyFocusImage from '../assets/process-image.jpg'; // New image import
 
 // --------------------------------------------------------
-// DATA ARRAYS (EXPANDED)
+// DATA ARRAYS (EXPANDED TO INCLUDE STAFFING AND CONSULTING)
 // --------------------------------------------------------
 
 const allProjects = [
     { id: 1, title: 'Enterprise CRM Platform', category: 'Web', tags: ['SaaS', 'React', 'Node.js'], image: Project1, description: 'Developed a robust, scalable CRM to manage sales pipelines and customer relations.' },
     { id: 2, title: 'Fitness Tracker App', category: 'Mobile', tags: ['ReactNative', 'UX/UI', 'Fitness'], image: Project2, description: 'A cross-platform mobile application for tracking workouts and nutrition.' },
     { id: 3, title: 'Global Talent Portal', category: 'HR', tags: ['HR Tech', 'AI Matching', 'GCP'], image: Project3, description: 'An AI-powered system for global recruitment and talent matching.' },
+    // New Project 1: IT Staffing
+    { id: 7, title: 'Scale-up Team Placement', category: 'Staffing', tags: ['Direct Hire', 'DevOps', 'Contract-to-Hire'], image: Project7, description: 'Successfully placed a full-stack engineering team to accelerate a fintech scale-up project.' },
+    // New Project 2: IT Consulting
+    { id: 8, title: 'Cloud Migration Strategy', category: 'Consulting', tags: ['AWS', 'Strategy', 'Optimization'], image: Project8, description: 'Provided a comprehensive consulting roadmap for migrating legacy infrastructure to AWS, achieving 30% cost savings.' },
     { id: 4, title: 'Data Visualization Dashboard', category: 'Web', tags: ['Analytics', 'D3.js', 'Python'], image: Project4, description: 'Real-time dashboard for complex business intelligence reporting.' },
     { id: 5, title: 'B2B E-Commerce Solution', category: 'Web', tags: ['E-Commerce', 'Next.js', 'Stripe'], image: Project5, description: 'High-performance e-commerce gateway for wholesale distributors.' },
     { id: 6, title: 'Logistics Optimization Tool', category: 'HR', tags: ['Logistics', 'Automation', 'Cloud'], image: Project6, description: 'Internal tool to optimize route planning and resource allocation.' },
@@ -43,7 +50,9 @@ const caseStudyFocus = {
 const clientTestimonials = [
     "Shimi-Infotech delivered a scalable solution that fundamentally changed how we manage our supply chain. Highly recommend!",
     "The attention to detail in the mobile UX was exceptional. Our user adoption rates doubled immediately.",
-    "Their HR portal cut our manual processing time by over 40%. True experts in enterprise integration."
+    "Their HR portal cut our manual processing time by over 40%. True experts in enterprise integration.",
+    // New Testimonial
+    "The **Consulting team** provided clear strategic direction, and the **Staffing service** quickly placed high-quality engineers who were a perfect cultural fit."
 ];
 
 // --------------------------------------------------------
@@ -58,7 +67,8 @@ const PortfolioPage = () => {
         ? allProjects
         : allProjects.filter(project => project.category === activeFilter);
 
-    const categories = ['All', 'Web', 'Mobile', 'HR'];
+    // Filter categories now include 'Staffing' and 'Consulting'
+    const categories = ['All', 'Web', 'Mobile', 'HR', 'Staffing', 'Consulting'];
 
     // Testimonial cycling logic
     React.useEffect(() => {
@@ -76,8 +86,8 @@ const PortfolioPage = () => {
             {/* --- 1. Portfolio Header --- */}
             <section className="portfolio-hero-header">
                 <div className="container">
-                    <h1>Our  Digital Portfolio </h1>
-                    <p className="subtitle animate-fade-in-up">Showcasing innovation and measurable results across web, mobile, and enterprise solutions.</p>
+                    <h1>Our Digital Portfolio </h1>
+                    <p className="subtitle animate-fade-in-up">Showcasing innovation and measurable results across web, mobile, enterprise solutions, **IT Staffing, and strategic Consulting**.</p>
                 </div>
             </section>
 
@@ -132,7 +142,7 @@ const PortfolioPage = () => {
                                 <div className="card-overlay">
                                     <h5>{project.title}</h5>
                                     <p>{project.description}</p>
-                                    <button className="secondary-btn">View Case Study</button>
+                                    
                                 </div>
                             </div>
                         ))}
@@ -180,13 +190,13 @@ const PortfolioPage = () => {
             </section>
 
             {/* --- 6. Final CTA --- */}
-            <section className="cta-banner cta-portfolio">
+            {/* <section className="cta-banner cta-portfolio">
                 <div className="container cta-content">
                     <h2>Ready to Create Your Own Success Story?</h2>
-                    <p>Let's discuss how Shimi-Infotech can deliver the next innovative solution for your business.</p>
+                    <p>Let's discuss how Shimi-Infotech can deliver the next innovative solution, provide expert consultation, or secure the perfect talent for your business.</p>
                     <button className="primary-btn dark-btn bounce-on-hover">Start a Project Today</button>
                 </div>
-            </section>
+            </section> */}
 
             <Footer />
 

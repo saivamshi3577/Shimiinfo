@@ -51,7 +51,7 @@
   width: auto;
 }
 
-/* **FIXED: Added flex to nav-menu to ensure vertical alignment of links and button** */
+/*  FIXED: Added flex to nav-menu to ensure vertical alignment of links and button  */
 .nav-menu {
     display: flex;
     align-items: center; 

@@ -10,6 +10,9 @@
   position: relative;
 }
 
+
+
+
 /* Bubble Styling */
 .hero-bubble {
   position: absolute;
@@ -76,8 +79,8 @@ overflow: hidden;
 }
 
 .hero-left {
-   flex: 1;
- max-width: 50%;
+   flex: 3;
+ max-width: 60%;
 }
 
 .animate-slide-left {
@@ -142,10 +145,77 @@ overflow: hidden;
     animation: fadeAndSlide 2s ease-out infinite; 
     display: inline-block;
 }
-/* ------------------------------------------- */
 
+
+.animated-sentence-box {
+    margin-bottom: 30px; 
+    /* Set a height to prevent the section from jumping */
+    min-height: 40px; 
+}
+.animated-sentence-p {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    line-height: 1.5;
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center;
+}
+
+/* The element containing the changing service name - NOW BIGGER */
+.animated-service-text {
+    overflow: hidden; 
+    white-space: nowrap; 
+    
+    /* Make the text bigger */
+    font-size: 1.8rem; /* INCREASED FONT SIZE HERE */
+    font-weight: 800; /* Increased weight for emphasis */
+    line-height: 1.2;
+    
+    color: var(--primary-color);
+    border-right: 3px solid var(--primary-color); /* The blinking cursor effect */
+    
+    /* Animation: 1.9s for the typing/width animation, 0.1s for the cursor blink */
+    animation: 
+        typing 1.9s steps(30, end) forwards,
+        blink-cursor 0.5s step-end infinite; 
+    
+    max-width: 0; 
+    display: inline-block;
+}
+
+/* --- NEW KEYFRAMES for Typing Animation --- */
+
+@keyframes typing {
+    from { 
+        max-width: 0; 
+        opacity: 0;
+    }
+    to { 
+        /* Max width must be slightly larger than the longest word (adjust if needed) */
+        max-width: 400px; 
+        opacity: 1;
+    }
+}
+
+/* Cursor blinking keyframe */
+@keyframes blink-cursor {
+    from, to { 
+        border-right-color: transparent 
+    }
+    50% { 
+        border-right-color: var(--primary-color); 
+    }
+}
+/* ------------------------------------------- */
+.hero-right .hero-image {
+    width: 60%; /* Now takes full width of the constrained hero-right div */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
 .hero-right {
-flex: 1;
+flex: 2;
 height: 450px;
 position: relative;
 overflow: hidden;
