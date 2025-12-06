@@ -20,7 +20,7 @@ const Header = () => {
                     <Link to="/services">Our Services</Link>
                     <Link to="/about">About</Link>
                     <Link to="/portfolio">Portfolio</Link>
-                    <Link to="/blog">Blog</Link>
+                    {/* <Link to="/blog">Blog</Link> */}
                     {/* Contact button uses <Link> */}
                     <Link to="/contact" className="contact-btn bounce-on-hover">Get In Touch</Link>
                 </nav>
