@@ -1,0 +1,273 @@
+/* PORTFOLIO PAGE SPECIFIC STYLES (Relies on shared/utility styles from HomePage.css/App.css) */
+
+/* =================================
+   ANIMATION SETUP (Defined in shared/App.css for global use)
+   ================================= */
+/* NOTE: Keyframes (fadeInUp, zoomIn, pulse, etc.) are assumed to be loaded via the imported CSS file. */
+
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+.animate-zoom-in { animation: zoomIn 0.7s ease-out forwards; opacity: 0; }
+.animate-slide-up { animation: slideUp 0.6s ease-out forwards; opacity: 0; }
+
+
+/* =================================
+   1. PORTFOLIO HERO HEADER
+   ================================= */
+.portfolio-hero-header {
+    background-color: var(--secondary-color);
+    padding: 80px 0;
+    text-align: center;
+    color: var(--white-color);
+}
+
+.portfolio-hero-header h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.portfolio-hero-header .subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* =================================
+   2. PROJECT FILTER SECTION
+   ================================= */
+.project-filter-section {
+    padding: 60px 0;
+    background-color: var(--bg-light);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.filter-btn {
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    padding: 10px 25px;
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    padding: 50px 0;
+}
+
+
+/* =================================
+   3. ANIMATED PROJECT GRID
+   ================================= */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--white-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card-image-wrapper {
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.project-category {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.project-card h4 {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.project-tags {
+    display: flex;
+    gap: 8px;
+}
+
+.tag {
+    font-size: 0.8rem;
+    background-color: var(--bg-light);
+    color: var(--light-text-color);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* Hover Overlay */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 34, 74, 0.95); /* Dark blue overlay */
+    color: var(--white-color);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    transform: translateY(100%); /* Start off-screen */
+}
+
+.project-card:hover .card-overlay {
+    opacity: 1;
+    transform: translateY(0); /* Slide up on hover */
+}
+
+.card-overlay h5 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.card-overlay p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.card-overlay .secondary-btn {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+}
+
+
+/* =================================
+   4. IMPACT METRICS
+   ================================= */
+.metrics-section {
+    padding: 80px 0;
+    background-color: var(--white-color);
+    text-align: center;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.metric-card {
+    padding: 20px;
+}
+
+.metric-value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.metric-value::after {
+    content: '+';
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.metric-detail {
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+}
+
+
+/* =================================
+   5. CTA BANNER
+   ================================= */
+.cta-banner.cta-portfolio {
+    padding: 60px 0;
+    background-color: var(--secondary-color);
+}
+
+
+/* =================================
+   RESPONSIVENESS
+   ================================= */
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .filter-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 640px) {
+    .portfolio-hero-header h1 {
+        font-size: 2.5rem;
+    }
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    .filter-buttons {
+        gap: 10px;
+    }
+    .filter-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+    .metric-value {
+        font-size: 2.5rem;
+    }
+}

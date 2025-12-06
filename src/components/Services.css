@@ -1,0 +1,368 @@
+/* SERVICES PAGE SPECIFIC STYLES (Relies on shared/utility styles from HomePage.css/App.css) */
+
+/* =================================
+   KEYFRAME ANIMATIONS (Repeated for clarity, assume utility styles are shared)
+   ================================= */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Specific Service Page Animations */
+.animate-slide-left { animation: slideInLeft 1s ease-out forwards; opacity: 0; }
+.animate-fade-in { animation: fadeIn 1.5s ease-out 0.5s forwards; opacity: 0; }
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+.animate-zoom-in { animation: zoomIn 0.7s ease-out forwards; opacity: 0; }
+.animate-slide-right { animation: slideRight 0.7s ease-out forwards; opacity: 0; }
+
+/* Slow slide animation for tab content transition */
+.animate-slide-right-slow {
+    animation: slideRight 1s ease-out 0.1s forwards; 
+    opacity: 0;
+}
+
+
+/* =================================
+   1. SERVICE HERO HEADER
+   ================================= */
+.services-hero-header {
+    background-color: var(--bg-light);
+    padding: 60px 0 100px;
+}
+
+.services-hero-header h1 {
+    font-size: 3rem;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.breadcrumb {
+    color: var(--light-text-color);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.breadcrumb span {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.hero-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: var(--light-text-color);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.hero-image-container {
+    flex: 1;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =================================
+   2. DETAILED SERVICE BREAKDOWN (TABS)
+   ================================= */
+.service-tabs-section {
+    padding: 80px 0;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.tab-btn {
+    background-color: var(--bg-light);
+    color: var(--secondary-color);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.tab-btn:hover {
+    background-color: #eee;
+}
+
+.tab-btn.active {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--white-color);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.tab-content h3 {
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.tab-content p {
+    color: var(--light-text-color);
+    margin-bottom: 25px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.feature-item {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.check-icon {
+    color: var(--primary-color);
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+
+/* =================================
+   3. TECHNOLOGY GRID
+   ================================= */
+.tech-stack-services-section {
+    padding: 80px 0;
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+.stack-subtitle {
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin: -40px auto 40px;
+    max-width: 600px;
+}
+
+.tech-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    padding: 20px;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tech-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.tech-card h4 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.tech-category {
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+}
+
+/* =================================
+   4. OUR PROCESS
+   ================================= */
+.process-section {
+    padding: 80px 0;
+}
+
+.process-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.process-steps {
+    flex: 1;
+}
+
+.process-image-container {
+    flex: 1;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.process-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.step-card {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px dashed #ddd;
+    transition: transform 0.3s;
+}
+
+.step-card:last-child {
+    border-bottom: none;
+}
+
+.step-card:hover {
+    transform: translateX(10px);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    text-align: center;
+    margin-right: 20px;
+    box-shadow: 0 0 0 0 rgba(247, 168, 0, 0.5);
+    animation: pulse 1.5s infinite alternate; /* Reusing pulse animation */
+}
+
+.step-card h3 {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.step-card p {
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+}
+
+
+/* =================================
+   RESPONSIVENESS
+   ================================= */
+@media (max-width: 1024px) {
+    .hero-content-wrapper,
+    .process-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-text, .hero-image-container {
+        max-width: 100%;
+        flex: none;
+    }
+
+    .hero-image-container {
+        height: 300px;
+        margin-top: 30px;
+    }
+
+    .process-image-container {
+        order: -1; /* Move image above steps on mobile */
+        height: 300px;
+        margin-bottom: 30px;
+    }
+    
+    .process-steps {
+        width: 100%;
+        max-width: 600px; /* Center steps */
+        margin: 0 auto;
+    }
+
+    .tech-stack-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .tab-buttons {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 640px) {
+    .services-hero-header h2 { font-size: 2rem; }
+    
+    .tech-stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tab-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .tab-content-container {
+        padding: 20px;
+    }
+}
