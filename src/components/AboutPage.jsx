@@ -41,9 +41,9 @@ const strategyPhases = [
 ];
 
 const timeline = [
- { year: 2012, event: 'Shimi-Infotech Founded: Launched with a mission to simplify enterprise software.' },
- { year: 2019, event: 'Expanded Services: Introduced dedicated Mobile App Development division.' },
- { year: 2020, event: 'Global Recognition: Won "Fastest Growing IT Solutions Provider" award.' },
+ { year: 2020, event: 'Shimi-Infotech Founded: Launched with a mission to simplify enterprise software.' },
+ { year: 2022, event: 'Expanded Services: Introduced dedicated Mobile App Development division.' },
+ { year: 2023, event: 'Global Recognition: Won "Fastest Growing IT Solutions Provider" award.' },
  { year: 2024, event: 'Future Forward: Launched AI-driven HR solutions pilot program.' },
 ];
 
@@ -136,7 +136,7 @@ const AboutPage = () => {
 
 
             {/* --- 6. Milestones/Timeline (Re-numbered) --- */}
-{/*             <section className="timeline-section">
+            <section className="timeline-section">
                 <div className="container">
                     <h2 className="section-title animate-fade-in-up">Our Journey So Far</h2>
                     <div className="timeline-wrapper">
@@ -151,7 +151,7 @@ const AboutPage = () => {
                         ))}
                     </div>
                 </div>
-            </section> */}
+            </section>
 
             {/* --- 8. CTA / Video Prompt --- */}
 {/*             <section className="cta-video-section">
