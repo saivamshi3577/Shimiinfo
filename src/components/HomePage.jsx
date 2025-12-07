@@ -141,13 +141,17 @@ const FAQItem = ({ question, answer, index, activeIndex, setActiveIndex }) => {
 // --------------------------------------------------------
 // New Animated Text Component
 // --------------------------------------------------------
+// --------------------------------------------------------
+// 1. REACT COMPONENT
+// --------------------------------------------------------
+
 const AnimatedServiceHighlight = () => {
     // List of services to cycle through
     const highlights = [
         'Web Development', 
         'Mobile Applications',
-        'IT  Staffing Services',      
-        'IT  Consulting Services',     
+        'IT  Staffing Services',      
+        'IT  Consulting Services',     
         'Enterprise Software',
         'Digital Marketing'
     ];
@@ -157,16 +161,15 @@ const AnimatedServiceHighlight = () => {
         // Cycles the highlight index every 2 seconds (2000ms)
         const interval = setInterval(() => {
             setCurrentHighlightIndex((prevIndex) => (prevIndex + 1) % highlights.length);
-        }, 2000); 
+        }, 2000); // Highlight changes every 2 seconds
 
         return () => clearInterval(interval);
     }, [highlights.length]);
 
-    // Key on the <span> forces the CSS animation (typing/fade) to re-trigger
+    // Key has been removed. The CSS handles the animation timing.
     const animatedService = (
         <span 
-            key={currentHighlightIndex} 
-            className="animated-service-text typing-animation"
+            className="animated-service-text fade-animation"
         >
             {highlights[currentHighlightIndex]}
         </span>

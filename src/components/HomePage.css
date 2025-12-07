@@ -164,24 +164,22 @@ overflow: hidden;
 
 /* The element containing the changing service name - NOW BIGGER */
 .animated-service-text {
-    overflow: hidden; 
+    /* Existing Styles - Kept for size and color */
     white-space: nowrap; 
-    
-    /* Make the text bigger */
-    font-size: 1.8rem; /* INCREASED FONT SIZE HERE */
-    font-weight: 800; /* Increased weight for emphasis */
+    font-size: 1.8rem;
+    font-weight: 800;
     line-height: 1.2;
-    
     color: var(--primary-color);
-    border-right: 3px solid var(--primary-color); /* The blinking cursor effect */
-    
-    /* Animation: 1.9s for the typing/width animation, 0.1s for the cursor blink */
-    animation: 
-        typing 1.9s steps(30, end) forwards,
-        blink-cursor 0.5s step-end infinite; 
-    
-    max-width: 0; 
     display: inline-block;
+    
+    /* New/Updated Animation Properties */
+    
+    /* REMOVED: border-right: 3px solid var(--primary-color); (The blinking cursor) */
+    
+    /* Using the new fade animation - should be slightly less than the JS interval (2s) */
+    animation: fade-in-out 1.8s ease-in-out infinite; 
+    
+    /* REMOVED: max-width: 0; */
 }
 
 /* --- NEW KEYFRAMES for Typing Animation --- */

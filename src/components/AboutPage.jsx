@@ -136,7 +136,7 @@ const AboutPage = () => {
 
 
             {/* --- 6. Milestones/Timeline (Re-numbered) --- */}
-            <section className="timeline-section">
+{/*             <section className="timeline-section">
                 <div className="container">
                     <h2 className="section-title animate-fade-in-up">Our Journey So Far</h2>
                     <div className="timeline-wrapper">
@@ -151,7 +151,7 @@ const AboutPage = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* --- 8. CTA / Video Prompt --- */}
 {/*             <section className="cta-video-section">
