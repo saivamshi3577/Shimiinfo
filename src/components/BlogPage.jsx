@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer'; 
 
 
-import Post1 from '../assets/image.png';
+import Post1 from '../assets/image333.png';
 import Post2 from '../assets/post-react.jpg';
 import Post3 from '../assets/post2.jpg';
 import Post4 from '../assets/post3.jpg';

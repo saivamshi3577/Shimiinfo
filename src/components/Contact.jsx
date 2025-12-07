@@ -14,9 +14,9 @@ const services = [
     { value: 'hr', label: 'HR & Enterprise Software' },
     { value: 'consulting', label: 'Strategic IT Consulting' },
     { value: 'staffing', label: 'Specialized IT Staffing' },
+    { value: 'digital marketing', label: 'Digital Marketing Solutions' }
 ];
 
-// UK Contact Details (Reused for consistency)
 const ukContactDetails = [
     { type: 'location', value: 'International House, 776-778 Barking Road, London E13 9PJ' },
     { type: 'phone', value: '+44-208 637 3036' },
@@ -41,7 +41,13 @@ const ContactPage = () => {
         service: '',
         project: ''
     });
+const [showModal, setShowModal] = useState(false);
+const openModal = () => setShowModal(true);
+    const closeModal = () => setShowModal(false);
 
+    // Filter the phone number from the details
+    const phoneNumber = ukContactDetails.find(d => d.type === 'phone').value;
+// UK Contact Details (Reused for consistency)
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -144,13 +150,30 @@ const ContactPage = () => {
             </section>
 
             {/* --- 3. CTA/Next Step --- */}
-            <section className="contact-cta-section">
-                <div className="container cta-content animate-zoom-in">
-                    <h2>Prefer a Direct Call?</h2>
-                    <p>Schedule a 15-minute consultation with our lead solutions architect today.</p>
-                    <button className="secondary-btn">Book a Meeting</button>
-                </div>
-            </section>
+         <section className="contact-cta-section">
+                <div className="container cta-content animate-zoom-in" style={{ position: 'relative' }}>
+                    <h2>Prefer a Direct Call?</h2>
+                    <p>Schedule a 15-minute consultation with our lead solutions architect today.</p>
+                    {/* --- Call Modal on Button Click --- */}
+                    <button className="secondary-btn pulse-on-hover" onClick={openModal}>Book a Meeting</button>
+                    
+                    {/* --- Phone Modal (Conditionally rendered) --- */}
+                   {showModal && (
+                        <div className="phone-modal-overlay" onClick={closeModal}>
+                            {/* Stop clicks inside the content from closing the modal */}
+                            <div className="phone-modal-content" onClick={(e) => e.stopPropagation()}>
+                                <button className="modal-close-btn" onClick={closeModal}>&times;</button>
+                                <h3>Ready to Talk Now?</h3>
+                                <p>Call our UK office for immediate assistance:</p>
+                                <a href={`tel:${phoneNumber}`} className="phone-number-link">
+                                    {phoneNumber}
+                                </a>
+                                <p className="modal-subtext">Tap the number to dial.</p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </section>
 
             <Footer />
         </div>

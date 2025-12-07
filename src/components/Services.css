@@ -1,8 +1,3 @@
-/* SERVICES PAGE SPECIFIC STYLES (Relies on shared/utility styles from HomePage.css/App.css) */
-
-/* =================================
-   KEYFRAME ANIMATIONS (Repeated for clarity, assume utility styles are shared)
-   ================================= */
 @keyframes slideInLeft {
     from { opacity: 0; transform: translateX(-50px); }
     to { opacity: 1; transform: translateX(0); }
@@ -23,42 +18,24 @@
     to { opacity: 1; transform: scale(1); }
 }
 
-/* Specific Service Page Animations */
-.animate-slide-left { animation: slideInLeft 1s ease-out forwards; opacity: 0; }
-.animate-fade-in { animation: fadeIn 1.5s ease-out 0.5s forwards; opacity: 0; }
-.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
-.animate-zoom-in { animation: zoomIn 0.7s ease-out forwards; opacity: 0; }
-.animate-slide-right { animation: slideRight 0.7s ease-out forwards; opacity: 0; }
-
-/* Slow slide animation for tab content transition */
-.animate-slide-right-slow {
-    animation: slideRight 1s ease-out 0.1s forwards; 
-    opacity: 0;
-}
 @keyframes slideInFeature {
     from { opacity: 0; transform: translateX(-15px); }
     to { opacity: 1; transform: translateX(0); }
 }
 
-
-.animate-feature-stagger {
-    animation: slideInFeature 0.4s ease-out forwards;
-    opacity: 0; /* Important: Start hidden */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(247, 168, 0, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(247, 168, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(247, 168, 0, 0); }
 }
 
+.animate-slide-left { animation: slideInLeft 1s ease-out forwards; opacity: 0; }
+.animate-fade-in { animation: fadeIn 1.5s ease-out 0.5s forwards; opacity: 0; }
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+.animate-zoom-in { animation: zoomIn 0.7s ease-out forwards; opacity: 0; }
+.animate-slide-right-slow { animation: slideRight 1s ease-out 0.1s forwards; opacity: 0;}
+.animate-feature-stagger { animation: slideInFeature 0.4s ease-out forwards; opacity: 0; }
 
-.service-icon-placeholder {
-    display: block;
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    text-align: center; /* Center the icon above the content */
-}
-
-
-/* =================================
-   1. SERVICE HERO HEADER
-   ================================= */
 .services-hero-header {
     background-color: var(--bg-light);
     padding: 60px 0 100px;
@@ -87,6 +64,7 @@
     display: flex;
     align-items: center;
     gap: 60px;
+    flex-wrap: wrap;
 }
 
 .hero-text {
@@ -119,19 +97,32 @@
     object-fit: cover;
 }
 
-
-/* =================================
-   2. DETAILED SERVICE BREAKDOWN (TABS)
-   ================================= */
 .service-tabs-section {
     padding: 80px 0;
 }
 
-.tab-buttons {
+.tab-buttons-desktop {
     display: flex;
     justify-content: center;
     gap: 15px;
     margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-dropdown-mobile {
+    display: none;
+}
+
+.mobile-service-select {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+    cursor: pointer;
 }
 
 .tab-btn {
@@ -145,6 +136,7 @@
     cursor: pointer;
     transition: all 0.3s;
     border: 2px solid transparent;
+    white-space: nowrap;
 }
 
 .tab-btn:hover {
@@ -165,7 +157,26 @@
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
+
+.service-icon-image-wrapper {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.service-icon-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tab-content { flex-grow: 1; }
 
 .tab-content h3 {
     font-size: 1.8rem;
@@ -197,64 +208,41 @@
     font-weight: 700;
 }
 
-
-/* =================================
-   3. TECHNOLOGY GRID
-   ================================= */
 .tech-stack-services-section {
- padding: 80px 0;
- background-color: var(--bg-light);
- text-align: center;
+    padding: 80px 0;
+    background-color: var(--bg-light);
+    text-align: center;
 }
 
 .stack-subtitle {
- font-size: 1.1rem;
- color: var(--light-text-color);
- margin: -40px auto 40px;
-max-width: 600px;
+    font-size: 1.1rem;
+    color: var(--light-text-color);
+    margin: -40px auto 40px;
+    max-width: 600px;
 }
 
 .tech-stack-grid {
     display: grid;
-   gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-   
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     max-width: 1100px;
     margin: 0 auto;
 }
-.service-icon-image-wrapper {
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-.service-icon-image {
-    width: 500px; /* Adjust size for the tab icons */
-    height: 500px;
-    object-fit: contain;
-}
-
-/* 🎯 NEW IMAGE STYLES FOR TECH STACK ICONS */
-.tech-icon {
-    /* Kept this wrapper, but made it use the image */
- font-size: 3rem; /* Original size if it were text */
- display: block;
- margin-bottom: 10px;
- color: var(--secondary-color);
-}
+.tech-icon { display: block; margin-bottom: 10px; }
 
 .tech-icon-image {
-    width: 100px; /* Smaller size for the technology stack cards */
-    height: 100px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
-    /* Optional: Filter to colorize if using monochrome icons */
-    /* filter: grayscale(100%) brightness(50%) sepia(1) hue-rotate(180deg) saturate(3); */
 }
+
 .tech-card {
     padding: 20px;
- background-color: var(--white-color);
- border-radius: 8px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-transition: transform 0.3s;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
 }
 
 .tech-card:hover {
@@ -262,11 +250,9 @@ transition: transform 0.3s;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.tech-card h4 {
-    font-size: 1.2rem;
-    color: var(--primary-color);
+.tech-card h6 {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
     margin-bottom: 5px;
 }
 
@@ -275,9 +261,6 @@ transition: transform 0.3s;
     color: var(--light-text-color);
 }
 
-/* =================================
-   4. OUR PROCESS
-   ================================= */
 .process-section {
     padding: 80px 0;
 }
@@ -286,11 +269,10 @@ transition: transform 0.3s;
     display: flex;
     gap: 50px;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.process-steps {
-    flex: 1;
-}
+.process-steps { flex: 1; }
 
 .process-image-container {
     flex: 1;
@@ -314,13 +296,9 @@ transition: transform 0.3s;
     transition: transform 0.3s;
 }
 
-.step-card:last-child {
-    border-bottom: none;
-}
+.step-card:last-child { border-bottom: none; }
 
-.step-card:hover {
-    transform: translateX(10px);
-}
+.step-card:hover { transform: translateX(10px); }
 
 .step-number {
     width: 40px;
@@ -335,7 +313,7 @@ transition: transform 0.3s;
     text-align: center;
     margin-right: 20px;
     box-shadow: 0 0 0 0 rgba(247, 168, 0, 0.5);
-    animation: pulse 1.5s infinite alternate; /* Reusing pulse animation */
+    animation: pulse 1.5s infinite alternate;
 }
 
 .step-card h3 {
@@ -349,61 +327,99 @@ transition: transform 0.3s;
     color: var(--light-text-color);
 }
 
-
-/* =================================
-   RESPONSIVENESS
-   ================================= */
 @media (max-width: 1024px) {
     .hero-content-wrapper,
     .process-wrapper {
         flex-direction: column;
         text-align: center;
     }
-    
-    .hero-text, .hero-image-container {
-        max-width: 100%;
+
+    .hero-text {
+        max-width: 80%;
         flex: none;
     }
 
     .hero-image-container {
+        max-width: 100%;
         height: 300px;
         margin-top: 30px;
+        flex: none;
     }
 
     .process-image-container {
-        order: -1; /* Move image above steps on mobile */
+        order: -1;
         height: 300px;
         margin-bottom: 30px;
+        width: 100%;
     }
-    
+
     .process-steps {
         width: 100%;
-        max-width: 600px; /* Center steps */
+        max-width: 600px;
         margin: 0 auto;
     }
 
     .tech-stack-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
-    .tab-buttons {
+
+    .tab-buttons-desktop {
         flex-wrap: wrap;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
-@media (max-width: 640px) {
-    .services-hero-header h2 { font-size: 2rem; }
-    
+@media (max-width: 767px) {
+    .services-hero-header { padding: 40px 0 60px; }
+    .services-hero-header h2 { font-size: 1.8rem; }
+    .section-title { font-size: 2rem; margin-bottom: 40px; }
+
+    .hero-text { max-width: 100%; }
+
+    .tab-buttons-desktop { display: none; }
+
+    .tab-dropdown-mobile {
+        display: block;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .tab-content-container {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .service-icon-image-wrapper {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+
+    .tab-content h3 { font-size: 1.5rem; }
+
+    .tab-content p,
+    .feature-list { text-align: left; }
+
+    .tech-stack-services-section { padding: 50px 0; }
+
     .tech-stack-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
-    .tab-btn {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
-    
-    .tab-content-container {
-        padding: 20px;
+
+    .process-section { padding: 50px 0; }
+
+    .step-card { padding-left: 0; }
+
+    .primary-btn { padding: 10px 20px; font-size: 0.9rem; }
+}
+
+@media (max-width: 375px) {
+    .services-hero-header h1 { font-size: 2.5rem; }
+
+    .tech-stack-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }

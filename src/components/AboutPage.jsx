@@ -41,9 +41,9 @@ const strategyPhases = [
 ];
 
 const timeline = [
- { year: 2018, event: 'Shimi-Infotech Founded: Launched with a mission to simplify enterprise software.' },
- { year: 2020, event: 'Expanded Services: Introduced dedicated Mobile App Development division.' },
- { year: 2022, event: 'Global Recognition: Won "Fastest Growing IT Solutions Provider" award.' },
+ { year: 2012, event: 'Shimi-Infotech Founded: Launched with a mission to simplify enterprise software.' },
+ { year: 2019, event: 'Expanded Services: Introduced dedicated Mobile App Development division.' },
+ { year: 2020, event: 'Global Recognition: Won "Fastest Growing IT Solutions Provider" award.' },
  { year: 2024, event: 'Future Forward: Launched AI-driven HR solutions pilot program.' },
 ];
 

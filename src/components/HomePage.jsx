@@ -90,7 +90,7 @@ const blogPosts = [
 const faqData = [
   {
     question: "What types of solutions does Shimi-Infotech specialize in?",
-    answer: "We specialize in end-to-end digital solutions, including custom web development, scalable mobile application development (iOS/Android), robust HR and enterprise software solutions, as well as  professional IT Staffing and expert IT Consulting services ."
+    answer: "We specialize in end-to-end digital solutions, including custom web development, scalable mobile application development (iOS/Android), robust HR and enterprise software solutions, as well as  professional Digital Marketing ,IT Staffing and expert IT Consulting services ."
   },
   {
     question: "Do you offer IT staffing services?",
@@ -146,9 +146,10 @@ const AnimatedServiceHighlight = () => {
     const highlights = [
         'Web Development', 
         'Mobile Applications',
-        'IT Staffing',      
-        'IT Consulting',     
+        'IT  Staffing Services',      
+        'IT  Consulting Services',     
         'Enterprise Software',
+        'Digital Marketing'
     ];
     const [currentHighlightIndex, setCurrentHighlightIndex] = useState(0);
 
