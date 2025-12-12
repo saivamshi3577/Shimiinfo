@@ -11,7 +11,79 @@
 }
 
 
+.visionary-quote-container {
+    margin-bottom: 35px;
+    border-left: 2px solid var(--primary-color);
+    padding-left: 25px;
+    position: relative;
+}
 
+.quote-main {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--secondary-color);
+    line-height: 1.6;
+    margin-bottom: 15px;
+    opacity: 0; /* Base state for animation */
+}
+
+.quote-main span {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.quote-manifesto {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.manifesto-line {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #666;
+    opacity: 0;
+}
+
+.manifesto-line.highlight {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+/* --- Animations --- */
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.delay-1 { animation: fadeInUp 0.8s ease forwards 0.5s; }
+.delay-2 { animation: fadeInUp 0.8s ease forwards 1s; }
+.delay-3 { animation: fadeInUp 0.8s ease forwards 1.5s; }
+.delay-4 { animation: fadeInUp 1s ease forwards 2s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adding a subtle glow to the 'shaping it' text */
+.manifesto-line.highlight {
+    text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.2);
+    animation: fadeInUp 1s ease forwards 2s, glowPulse 3s infinite alternate 3s;
+}
+
+@keyframes glowPulse {
+    from { text-shadow: 0 0 5px rgba(var(--primary-rgb), 0.2); }
+    to { text-shadow: 0 0 15px rgba(var(--primary-rgb), 0.5); }
+}
 
 /* Bubble Styling */
 .hero-bubble {
@@ -207,14 +279,14 @@ overflow: hidden;
 }
 /* ------------------------------------------- */
 .hero-right .hero-image {
-    width: 60%; /* Now takes full width of the constrained hero-right div */
+    width: 100%; /* Now takes full width of the constrained hero-right div */
     height: 100%;
     object-fit: cover;
     border-radius: 6px;
 }
 .hero-right {
 flex: 2;
-height: 450px;
+height: 600px;
 position: relative;
 overflow: hidden;
  /* New Image Wrapper Animation Setup */
@@ -333,7 +405,7 @@ overflow: hidden;
 
 .hero-right {
 flex: 1;
- height: 450px;
+ height: 700px;
  position: relative;
  overflow: hidden;
   /* New Image Wrapper Animation Setup */
@@ -479,7 +551,23 @@ flex: 1;
 .card-back p {
     color: rgba(255, 255, 255, 0.8);
 }
+.rating-stars {
+    /* Optional: Use flex to space out stars slightly if desired */
+    display: flex; 
+    gap: 2px; /* Small space between stars */
+    line-height: 1; /* Prevent stars from affecting line height */
+}
 
+.star-icon {
+    /* Set the color to gold/yellow */
+    color: #FFD700; /* Gold color */
+    
+    /* Control the size of the star icon */
+    font-size: 1.2rem; /* Adjust size as needed */
+    
+    /* Ensure the icon is treated as a block element for cleaner rendering */
+    display: block;
+}
 .service-icon {
   font-size: 2.5rem;
   color: var(--primary-color);

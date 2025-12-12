@@ -62,7 +62,7 @@ const clientTestimonials = [
     "Shimi-Infotech delivered a scalable solution that fundamentally changed how we manage our supply chain. Highly recommend!",
     "The attention to detail in the mobile UX was exceptional. Our user adoption rates doubled immediately.",
     "Their HR portal cut our manual processing time by over 40%. True experts in enterprise integration.",
-    "The **Consulting team** provided clear strategic direction, and the **Staffing service** quickly placed high-quality engineers who were a perfect cultural fit."
+    "The Consulting team provided clear strategic direction, and the Staffing service quickly placed high-quality engineers who were a perfect cultural fit."
 ];
 
 // --------------------------------------------------------
@@ -97,7 +97,7 @@ const PortfolioPage = () => {
             <section className="portfolio-hero-header">
                 <div className="container">
                     <h1>Our Digital Portfolio </h1>
-                    <p className="subtitle animate-fade-in-up">Showcasing innovation and measurable results across web, mobile, enterprise solutions, **IT Staffing, and strategic Consulting**.</p>
+                    <p className="subtitle animate-fade-in-up">Showcasing innovation and measurable results across web, mobile, enterprise solutions, IT Staffing, and strategic Consulting.</p>
                 </div>
             </section>
 

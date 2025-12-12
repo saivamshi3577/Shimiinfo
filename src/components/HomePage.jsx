@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaMapMarkerAlt,FaLightbulb, FaCogs, FaChartLine, FaLink, FaBriefcase,FaStar, FaUsers, FaPhoneAlt, FaEnvelope ,FaLaptopCode, FaSearch, FaMobileAlt, FaCloud } from "react-icons/fa";
 
 // Import separated components
 import Header from './Header'; 
@@ -29,48 +29,52 @@ import Blog3 from '../assets/blog-3.jpg';
 // --------------------------------------------------------
 
 const services = [
-  {
-    icon: '💡', 
-    title: 'Design-Led Innovation',
-    description: 'We blend design thinking with agile development to create impactful solutions.',
-    backContent: 'Our design thinking workshops help you identify user needs and pivot quickly. We deliver MVPs in record time.',
-  },
-  {
-    icon: '⚙️', 
-    title: 'Technology Implementation',
-    description: 'Leveraging cutting-edge technologies to build scalable and robust products.',
-    backContent: 'From cloud architecture to custom API development, we build robust backend systems that scale with your business.',
-  },
-  {
-    icon: '📈', 
-    title: 'Data-Driven Strategy',
-    description: 'Using analytics and research to inform decisions and accelerate growth.',
-    backContent: 'Harness the power of big data and machine learning to predict trends and personalize user experiences.',
-  },
-  {
-    icon: '🔗', 
-    title: 'System Integration',
-    description: 'Seamlessly connecting disparate systems to optimize business processes.',
-    backContent: 'We specialize in integrating legacy systems with modern platforms to ensure seamless data flow and process automation.',
-  },
-  // --- NEW SERVICES ADDED HERE ---
   {
-    icon: '💼', 
-    title: 'IT Consulting',
-    description: 'Strategic guidance to optimize your IT infrastructure and drive digital transformation.',
-    backContent: 'Our expert consultants provide tailored roadmaps, technology assessments, and cloud migration strategies to maximize efficiency.',
-  },
+    // Replaced '💡' (Light Bulb) with FaLightbulb
+    icon: <FaLightbulb />, 
+    title: 'Design-Led Innovation',
+    description: 'We blend design thinking with agile development to create impactful solutions.',
+    backContent: 'Our design thinking workshops help you identify user needs and pivot quickly. We deliver MVPs in record time.',
+  },
   {
-    icon: '👥', 
-    title: 'IT Staffing',
-    description: 'Connecting you with top-tier technical talent for short-term projects or long-term roles.',
-    backContent: 'Rapidly scale your team with pre-vetted engineers, developers, and IT professionals that fit your culture and project needs.',
-  },
-  // -------------------------------
+    // Replaced '⚙️' (Gear/Cog) with FaCogs (multiple gears for systems)
+    icon: <FaCogs />, 
+    title: 'Technology Implementation',
+    description: 'Leveraging cutting-edge technologies to build scalable and robust products.',
+    backContent: 'From cloud architecture to custom API development, we build robust backend systems that scale with your business.',
+  },
+  {
+    // Replaced '📈' (Chart) with FaChartLine
+    icon: <FaChartLine />, 
+    title: 'Data-Driven Strategy',
+    description: 'Using analytics and research to inform decisions and accelerate growth.',
+    backContent: 'Harness the power of big data and machine learning to predict trends and personalize user experiences.',
+  },
+  {
+    // Replaced '🔗' (Link) with FaLink
+    icon: <FaLink />, 
+    title: 'System Integration',
+    description: 'Seamlessly connecting disparate systems to optimize business processes.',
+    backContent: 'We specialize in integrating legacy systems with modern platforms to ensure seamless data flow and process automation.',
+  },
+  {
+    // Replaced '💼' (Briefcase) with FaBriefcase (for Consulting/Professional Services)
+    icon: <FaBriefcase />, 
+    title: 'IT Consulting',
+    description: 'Strategic guidance to optimize your IT infrastructure and drive digital transformation.',
+    backContent: 'Our expert consultants provide tailored roadmaps, technology assessments, and cloud migration strategies to maximize efficiency.',
+  },
+  {
+    // Replaced '👥' (Group) with FaUsers (for Staffing/People)
+    icon: <FaUsers />, 
+    title: 'IT Staffing',
+    description: 'Connecting you with top-tier technical talent for short-term projects or long-term roles.',
+    backContent: 'Rapidly scale your team with pre-vetted engineers, developers, and IT professionals that fit your culture and project needs.',
+  },
 ];
 
 const expertiseData = [
-    { title: '13 Years', subtitle: 'of Experience', detail: 'In various industries, delivering top-tier solutions globally.' },
+    { title: '5 Years', subtitle: 'of Experience', detail: 'In various industries, delivering top-tier solutions globally.' },
     { title: '98%', subtitle: 'Success Rate', detail: 'Of projects delivered on time and within budget.' },
     { title: '24/7', subtitle: 'Support', detail: 'Our dedicated team is always ready to assist you.' },
     { title: '50+', subtitle: 'Team Members', detail: 'A global network of experts ready for your next project.' },
@@ -208,25 +212,39 @@ const HomePage = () => {
     
     {/* Animated Bubble Elements */}
     <div className="hero-bubble bubble-1"></div>
-    <div className="hero-bubble bubble-2"></div>
+   
     <div className="hero-bubble bubble-3"></div>
     <div className="hero-bubble bubble-4"></div>
 
     <div className="container hero-content">
-        <div className="hero-left animate-slide-left">
-            <span className="hero-pre-title-alt">\ Future-Proof Your Business \</span>
-            <h2>Unlock Better Insights For Sustainable Business Growth </h2>
-            
-            <p className="hero-sub-text">
-                Empower your enterprise with scalable technology solutions and strategic IT partnerships designed for the digital era.
-            </p>
-            
-            {/* Removed quote-box, integrated Animated Highlight directly */}
-            <AnimatedServiceHighlight />
-        
+      <div className="hero-left animate-slide-left">
+    <span className="hero-pre-title-alt">\ Future-Proof Your Business \</span>
+    <h2>Unlock Better Insights For Sustainable Business Growth</h2>
+    
+    <p className="hero-sub-text">
+        Empower your enterprise with scalable technology solutions and strategic IT partnerships designed for the digital era.
+    </p>
 
-            <button className="primary-btn pulse-on-hover">View Our Solutions</button>
-        </div>
+    {/* --- NEW VISIONARY QUOTE SECTION --- */}
+    <div className="visionary-quote-container">
+        <p className="quote-main fade-in-up">
+            To build a feature that is <span>visionary yet grounded</span>, 
+            <span> futuristic yet timeless</span>, and 
+            <span> global yet profoundly human</span>.
+        </p>
+        <div className="quote-manifesto">
+            <span className="manifesto-line delay-1">The world is shifting</span>
+            <span className="manifesto-line delay-2">the future is unfolding</span>
+            <span className="manifesto-line delay-3">and we are not waiting for it</span>
+            <span className="manifesto-line highlight delay-4">we are shaping it.</span>
+        </div>
+    </div>
+    {/* ---------------------------------- */}
+
+    <AnimatedServiceHighlight />
+
+    <button className="primary-btn pulse-on-hover">View Our Solutions</button>
+</div>
 
         <div className="hero-right">
             {/* The image remains in the right column */}
@@ -245,9 +263,7 @@ const HomePage = () => {
             <span className="section-subtitle"> \ About us \ </span>
             <h2>One of the  Fastest Way  to  Develop Your Business </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+             Shimi-Infotech is founded on the belief that digital transformation should be accessible, effective, and perfectly aligned with business goals. We are a team of strategic thinkers, designers, and developers dedicated to delivering robust Web, Mobile, and HR solutions that drive tangible growth..
             </p>
             <ul>
               <li>Strategy & Consulting</li>
@@ -298,12 +314,14 @@ const HomePage = () => {
             <h2 className="section-subtitle">Our Solution</h2>
             <h2>We Deliver  Exceptional Product  That is Built to Last</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+             We deliver exceptional products and comprehensive solutions. Our focus is on meticulous engineering and uncompromising quality, ensuring every result we provide is reliable, durable, and truly built to last for sustained performance.
             </p>
             <div className="rating-stars">
-              ⭐⭐⭐⭐⭐
-            </div>
+            {/* Replace the string of emojis with a mapped React Icon */}
+         
+                <FaStar className="star-icon" /><FaStar className="star-icon" /><FaStar className="star-icon" /><FaStar className="star-icon" /><FaStar className="star-icon" />
+            
+        </div>
             <p className="rating-text"> 5.0 Rating  on all our projects from our clients.</p>
             <button className="primary-btn pulse-on-hover">Get Started</button>
           </div>
