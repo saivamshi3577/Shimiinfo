@@ -1,41 +1,35 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Header.css";
 import logoImage from "../assets/logo.png";
 
 const Header = () => {
-  const navigate = useNavigate();
-
   return (
     <header className="header">
       <div className="container">
 
         {/* LOGO */}
-        <a
-          className="logo"
-          onClick={() => navigate("/")}
-          style={{ cursor: "pointer" }}
-        >
+        <NavLink to="/" className="logo">
           <img
             src={logoImage}
             alt="Shimi-Infotech Logo"
             className="logo-img"
           />
-        </a>
+        </NavLink>
 
         {/* NAV MENU */}
         <nav className="nav-menu">
-          <a onClick={() => navigate("/")}>Home</a>
-          <a onClick={() => navigate("/services")}>Our Services</a>
-          <a onClick={() => navigate("/about")}>About</a>
-          <a onClick={() => navigate("/portfolio")}>Portfolio</a>
+          <NavLink to="/" className="nav-link">Home</NavLink>
+          <NavLink to="/services" className="nav-link">Our Services</NavLink>
+          <NavLink to="/about" className="nav-link">About</NavLink>
+          <NavLink to="/portfolio" className="nav-link">Portfolio</NavLink>
 
-          <a
+          <NavLink
+            to="/contact"
             className="contact-btn bounce-on-hover"
-            onClick={() => navigate("/contact")}
           >
             Get In Touch
-          </a>
+          </NavLink>
         </nav>
 
       </div>

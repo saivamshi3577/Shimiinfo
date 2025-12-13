@@ -148,17 +148,7 @@ const ServiceTabs = () => {
                 {/* --- Dropdown Select (Mobile View) --- */}
                 {isMobile && (
                     <div className="tab-dropdown-mobile animate-fade-in-up">
-                        <select
-                            className="mobile-service-select"
-                            value={activeTab}
-                            onChange={handleDropdownChange}
-                        >
-                            {Object.keys(serviceDetails).map(key => (
-                                <option key={key} value={key}>
-                                    {serviceDetails[key].title}
-                                </option>
-                            ))}
-                        </select>
+                   
                     </div>
                 )}
 

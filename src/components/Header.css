@@ -1,15 +1,17 @@
-/* HEADER / NAVIGATION STYLES */
+/* ===============================
+   HEADER / NAVIGATION STYLES
+================================ */
+
 .header {
   position: sticky;
   top: 0;
-  /* New Background Color */
   background-color: #141f3e;
   z-index: 1000;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-/* Animating Line on Page Load */
+/* Page Load Animated Line */
 .header::before {
   content: '';
   position: absolute;
@@ -19,7 +21,7 @@
   width: 100%;
   background: linear-gradient(90deg, transparent, #a27900, transparent);
   animation: line-animation 2s ease-out forwards;
-  transform: translateX(-100%); 
+  transform: translateX(-100%);
 }
 
 @keyframes line-animation {
@@ -31,115 +33,174 @@
   }
 }
 
+/* ===============================
+   CONTAINER
+================================ */
+
 .header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 14px 24px;
 }
+
+/* ===============================
+   LOGO
+================================ */
 
 .logo {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff; 
+  cursor: pointer;
 }
 
 .logo-img {
-  max-height: 40px; 
+  max-height: 42px;
   width: auto;
 }
 
-/*  FIXED: Added flex to nav-menu to ensure vertical alignment of links and button  */
+/* ===============================
+   NAV MENU
+================================ */
+
 .nav-menu {
-    display: flex;
-    align-items: center; 
+  display: flex;
+  align-items: center;
 }
 
-.nav-menu a {
+/* Base Nav Links */
+.nav-menu .nav-link {
+  position: relative;
   text-decoration: none;
-  color: #cccccc; 
-  margin-left: 25px;
-  /* Added padding to non-button links for better hit area, keeping height consistent */
-  padding: 5px 0; 
+  color: #cccccc;
+  margin-left: 26px;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
-.nav-menu a:hover {
+/* Hover */
+.nav-menu .nav-link:hover {
   color: #a27900;
 }
 
-/* Animating Button: Base Styling */
+/* ACTIVE PAGE */
+.nav-menu .nav-link.active {
+  color: #a27900;
+  font-weight: 600;
+}
+
+/* Active underline */
+.nav-menu .nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: #a27900;
+}
+
+/* ===============================
+   CONTACT BUTTON
+================================ */
+
 .nav-menu .contact-btn {
-  /* Adjusted margin to maintain spacing after the blog link */
-  margin-left: 30px; 
-  padding: 10px 20px;
+  margin-left: 30px;
+  padding: 10px 22px;
   text-decoration: none;
   font-weight: 600;
   color: #ffffff;
-  /* New Button Color */
   background-color: #a27900;
   border: 2px solid #a27900;
-  border-radius: 5px;
-  transition: color 0.3s;
-  /* Animation Setup */
+  border-radius: 6px;
   position: relative;
   overflow: hidden;
-  z-index: 1; 
-  /* Important: Resetting line-height and display to ensure it behaves as a button element */
-  display: inline-block;
-  line-height: normal; 
+  z-index: 1;
+  transition: color 0.3s ease;
 }
 
-/* Animating Button: Pseudo-element for the Background Slide */
+/* Button slide animation */
 .nav-menu .contact-btn::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* Slightly darker or lighter color for the hover effect */
-  background-color: #bfa141; 
-  transition: transform 0.4s ease-out;
-  transform: translateX(-100%); 
-  z-index: -1; 
+  inset: 0;
+  background-color: #bfa141;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: -1;
 }
 
-/* Animating Button: Hover Effect */
+/* Hover */
 .nav-menu .contact-btn:hover {
-  color: #141f3e; /* Text color changes on hover */
+  color: #141f3e;
 }
 
 .nav-menu .contact-btn:hover::after {
-  transform: translateX(0); /* Slide the background color in */
+  transform: translateX(0);
 }
 
+/* Active Contact Page */
+.nav-menu .contact-btn.active {
+  background-color: #a27900;
+  color: #141f3e;
+}
 
-/* Responsiveness for Header */
+/* ===============================
+   MOBILE RESPONSIVE
+================================ */
+
 @media (max-width: 768px) {
+
   .header .container {
     flex-direction: column;
-  }
-  
-  .nav-menu {
-    margin-top: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* Ensure alignment is centered on mobile */
-    align-items: center; 
+    padding: 16px;
   }
 
-  .nav-menu a {
-    margin: 5px 10px;
-    padding: 5px 0;
+  .nav-menu {
+    margin-top: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
-  
+
+  .nav-menu .nav-link {
+    margin-left: 0;
+    padding: 6px 10px;
+    font-size: 0.95rem;
+  }
+
+  .nav-menu .nav-link.active::after {
+    bottom: -4px;
+  }
+
   .nav-menu .contact-btn {
-    margin: 10px 10px 0; 
+    margin-left: 0;
+    margin-top: 8px;
+    padding: 10px 18px;
+    font-size: 0.95rem;
   }
 }
 
+/* ===============================
+   EXTRA SMALL DEVICES
+================================ */
+
+@media (max-width: 480px) {
+
+  .logo-img {
+    max-height: 36px;
+  }
+
+  .nav-menu {
+    gap: 8px;
+  }
+
+  .nav-menu .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .nav-menu .contact-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
