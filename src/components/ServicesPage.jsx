@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Services.css';
 import Header from './Header';
 import Footer from './Footer';
-
+import { useNavigate } from "react-router-dom";
 // --- Image Imports (assuming standard asset structure) ---
 import ServiceHeroImage from '../assets/service-hero.jpg';
 import ProcessImage from '../assets/process-image.jpg';
@@ -30,7 +30,7 @@ const technologyStack = [
     { icon: IconPython, name: 'Python/Django', category: 'Backend' },
     { icon: IconRN, name: 'React Native', category: 'Mobile' },
     { icon: IconCloud, name: 'AWS/GCP', category: 'Cloud' },
-    { icon: IconDatabase, name: 'PostgreSQL/MongoDB', category: 'Database' },
+    { icon: IconDatabase, name: 'PostgreSQL', category: 'Database' },
     { icon: IconSecurity, name: 'Cybersecurity', category: 'Security' },
 ];
 
@@ -86,6 +86,7 @@ const processSteps = [
 // --------------------------------------------------------
 
 const ServiceTabs = () => {
+     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('web');
     const currentService = serviceDetails[activeTab];
     const [tabKey, setTabKey] = useState(0);
@@ -182,7 +183,7 @@ const ServiceTabs = () => {
                                 </li>
                             ))}
                         </ul>
-                        <button className="primary-btn pulse-on-hover">Start {currentService.title.split(' ')[0]} Project</button>
+                        <button className="primary-btn pulse-on-hover" onClick={() => navigate("/contact")}>Start {currentService.title.split(' ')[0]} Project</button>
                     </div>
                 </div>
             </div>
@@ -196,6 +197,7 @@ const ServiceTabs = () => {
 // --------------------------------------------------------
 
 const ServicesPage = () => {
+    const navigate = useNavigate();
     // The Hero content was missing in the original code, but I've added a basic structure here
     // to apply the necessary responsiveness classes.
     return (
@@ -206,13 +208,13 @@ const ServicesPage = () => {
             <section className="services-hero-header">
                 <div className="container">
                     <h1 className="animate-fade-in-up">Our Services & Expertise</h1>
-                    <p className="breadcrumb animate-fade-in-up">Home &gt; <span>Services</span></p>
+                  
 
                     <div className="hero-content-wrapper">
                         <div className="hero-text animate-slide-left">
                             <h2>Building the Future, Together.</h2>
                             <p>From complex enterprise systems to intuitive mobile apps, we deliver end-to-end technology solutions that drive business outcomes. Explore our core services below.</p>
-                            <button className="primary-btn">Get a Free Consultation</button>
+                            <button className="primary-btn"onClick={() => navigate("/contact")}>Get a Free Consultation</button>
                         </div>
                         <div className="hero-image-container animate-fade-in">
                             <img src={ServiceHeroImage} alt="Service Overview" className="service-hero-image" />

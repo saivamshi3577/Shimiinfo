@@ -18,6 +18,60 @@
 /* ======================================================= */
 /* === MODAL STYLES (New Section) === */
 /* ======================================================= */
+.form-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(247,168,0,0.15), transparent);
+  border-radius: 50%;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  box-shadow: 0 0 0 3px rgba(247,168,0,0.15);
+}
+
+.primary-btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(247,168,0,0.4);
+}
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.social-links a {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  transform: scale(1.15);
+}
 
 .phone-modal-overlay {
     /* Changed from fixed to absolute to position relative to its closest positioned ancestor (.cta-content) */
@@ -312,4 +366,25 @@
     .form-wrapper, .info-wrapper {
         padding: 30px;
     }
+}
+
+
+@media (max-width: 600px) {
+  .social-links {
+    justify-content: center;
+  }
+
+  .info-wrapper h2,
+  .form-wrapper h2 {
+    text-align: center;
+  }
+
+  .contact-detail-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .detail-icon {
+    margin-right: 10px;
+  }
 }

@@ -25,6 +25,7 @@ const coreValues = [
  { icon: IconInnovation, title: 'Innovation First', description: 'Driving progress through cutting-edge technology and creative problem-solving.' },
 { icon: IconPartnership, title: 'Client Partnership', description: 'Building long-term success through trust, transparency, and deep collaboration.' },
  { icon: IconExcellence, title: 'Excellence in Execution', description: 'Committing to high standards and flawless delivery across all projects.' },
+
 ];
 
 const techStack = [
@@ -56,10 +57,7 @@ const AboutPage = () => {
             
             {/* --- 1. Breadcrumb/Title Header --- */}
             <section className="about-hero-header">
-                <div className="container">
-                    <h1>About</h1>
-                    <p className="breadcrumb">Home / <span>About</span></p>
-                </div>
+                
             </section>
 
             {/* --- 2. Company Vision/Introduction --- */}
@@ -106,13 +104,18 @@ const AboutPage = () => {
                     <p className="tech-intro">We build future-proof solutions by mastering the leading technologies across web, mobile, and data ecosystems.</p>
                     <div className="tech-icon-grid">
                         {techStack.map((tech, index) => (
-                            <div className="tech-card animate-slide-up" key={index} style={{ animationDelay: `${index * 0.15}s` }}>
-                                <span className="tech-icon">
-                                    <img src={tech.icon} alt={tech.title} className="icon-image" /> {/* FIXED HERE */}
-                                </span>
-                                <h4>{tech.title}</h4>
-                                <p>{tech.description}</p>
-                            </div>
+                           <div className="tech-card flip-card" key={index}>
+  <div className="flip-card-inner">
+    <div className="flip-card-front">
+      <img src={tech.icon} alt={tech.title} className="icon-image" />
+      <h4>{tech.title}</h4>
+    </div>
+    <div className="flip-card-back">
+      <p>{tech.description}</p>
+    </div>
+  </div>
+</div>
+
                         ))}
                     </div>
                 </div>

@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './HomePage.css';
-import { FaMapMarkerAlt,FaLightbulb, FaCogs, FaChartLine, FaLink, FaBriefcase,FaStar, FaUsers, FaPhoneAlt, FaEnvelope ,FaLaptopCode, FaSearch, FaMobileAlt, FaCloud } from "react-icons/fa";
+import { FaLightbulb, FaCogs, FaChartLine, FaLink,  FaMapMarkerAlt, 
+  FaPhoneAlt, 
+  FaEnvelope,
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn, FaBriefcase,FaStar, FaUsers ,FaLaptopCode, FaSearch, FaMobileAlt, FaCloud } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
 
 // Import separated components
 import Header from './Header'; 
@@ -23,6 +31,7 @@ import ApproachTeamImage from '../assets/approach-team.jpg';
 import Blog1 from '../assets/blog-1.jpg';
 import Blog2 from '../assets/blog-2.jpg';
 import Blog3 from '../assets/blog-3.jpg';
+import { RiH1 } from 'react-icons/ri';
 
 // --------------------------------------------------------
 // 2. DATA ARRAYS
@@ -75,10 +84,10 @@ const services = [
 
 const expertiseData = [
     { title: '5 Years', subtitle: 'of Experience', detail: 'In various industries, delivering top-tier solutions globally.' },
-    { title: '98%', subtitle: 'Success Rate', detail: 'Of projects delivered on time and within budget.' },
+    { title: '100%', subtitle: 'Success Rate', detail: 'Of projects delivered on time and within budget.' },
     { title: '24/7', subtitle: 'Support', detail: 'Our dedicated team is always ready to assist you.' },
     { title: '50+', subtitle: 'Team Members', detail: 'A global network of experts ready for your next project.' },
-    { title: '120+', subtitle: 'Clients', detail: 'Satisfied customers ranging from startups to large enterprises.' },
+    { title: '100+', subtitle: 'Clients', detail: 'Satisfied customers ranging from startups to large enterprises.' },
     { title: '100%', subtitle: 'Client Retention', detail: 'Our commitment to excellence ensures long-term partnerships.' },
 ];
 
@@ -179,14 +188,16 @@ const AnimatedServiceHighlight = () => {
         </span>
     );
     
+
     // The main sentence structure
     return (
         <div className="animated-sentence-box">
             <h3 className="animated-sentence-p">
-                We design, build, and scale custom &nbsp; 
+                Your partner for digital innovation and IT excellence, specializing in &nbsp; 
                 {animatedService} 
-                &nbsp; solutions to power your business growth.
+                &nbsp; 
             </h3>
+            
         </div>
     );
 };
@@ -199,7 +210,7 @@ const HomePage = () => {
   const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
   const [activeFaqIndex, setActiveFaqIndex] = useState(null);
 
-
+const navigate = useNavigate();
 
   return (
     <div className="homepage">
@@ -243,7 +254,13 @@ const HomePage = () => {
 
     <AnimatedServiceHighlight />
 
-    <button className="primary-btn pulse-on-hover">View Our Solutions</button>
+    <button
+  className="primary-btn pulse-on-hover"
+  onClick={() => navigate("/services")}
+>
+  View Our Solutions
+</button>
+
 </div>
 
         <div className="hero-right">
@@ -270,7 +287,7 @@ const HomePage = () => {
               <li>Product Design & Delivery</li>
               <li>Digital Transformation</li>
             </ul>
-            <button className="secondary-btn bounce-on-hover">Learn More</button>
+            <button className="secondary-btn bounce-on-hover" onClick={() => navigate("/about")}>Learn More</button>
           </div>
         </div>
       </section>
@@ -278,7 +295,7 @@ const HomePage = () => {
       {/* ------------------- 4. OUR SERVICES SECTION ------------------- */}
       <section className="services-section">
         <div className="container">
-          <h2 className="section-title">Our Services</h2>
+          <h2 className="section-title">OUR SERVICES</h2>
           <div className="services-grid">
             {services.map((service, index) => (
               <div className="service-card-container" key={index}>
@@ -311,7 +328,7 @@ const HomePage = () => {
       <section className="approach-section">
         <div className="container approach-content">
           <div className="approach-text">
-            <h2 className="section-subtitle">Our Solution</h2>
+            <h1 className="section-subtitle">OUR SOLUTIONS</h1>
             <h2>We Deliver  Exceptional Product  That is Built to Last</h2>
             <p>
              We deliver exceptional products and comprehensive solutions. Our focus is on meticulous engineering and uncompromising quality, ensuring every result we provide is reliable, durable, and truly built to last for sustained performance.
@@ -323,7 +340,7 @@ const HomePage = () => {
             
         </div>
             <p className="rating-text"> 5.0 Rating  on all our projects from our clients.</p>
-            <button className="primary-btn pulse-on-hover">Get Started</button>
+            <button className="primary-btn pulse-on-hover" onClick={() => navigate("/services")}>Get Started</button>
           </div>
           <div className="approach-image">
              <img src={ApproachTeamImage} alt="A diverse team collaborating around a table" className="approach-image-img" />
@@ -334,7 +351,7 @@ const HomePage = () => {
       {/* ------------------- 6. OUR EXPERTISE SECTION ------------------- */}
       <section className="expertise-section">
         <div className="container">
-          <h2 className="section-title">Our Expertise</h2>
+          <h2 className="section-title">OUR EXPERTISE</h2>
           <div className="expertise-grid">
             {expertiseData.map((item, index) => (
                 <div className="expertise-card-container" key={index}>
@@ -370,27 +387,34 @@ const HomePage = () => {
       </section>
 
 
-     <section className="contact-section">
+  <section className="contact-section">
   <div className="container contact-container">
 
-    <div className="contact-form-wrapper">
-      <h2>Hey! Let's Talk</h2>
+    {/* ================= FORM ================= */}
+    <div className="contact-form-wrapper animate-fade-up">
+      <span className="contact-badge">Get In Touch</span>
+      <h2>Let’s Build Something <span>Great</span> Together</h2>
+      <p className="contact-subtitle">
+        Tell us about your idea and we’ll turn it into a powerful digital solution.
+      </p>
+
       <form className="contact-form">
-        <input type="text" placeholder="Name" required />
-        <input type="email" placeholder="Email" required />
-        <textarea placeholder="Tell us about your project..." rows="4" required></textarea>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Tell us about your project..." rows="4" required />
         <button type="submit" className="primary-btn pulse-on-hover">
           Send Message
         </button>
       </form>
     </div>
 
-    <div className="contact-info-wrapper">
+    {/* ================= INFO ================= */}
+    <div className="contact-info-wrapper animate-slide-right">
       <h3>Contact Information</h3>
 
       <div className="info-item">
         <span className="info-icon"><FaMapMarkerAlt /></span>
-        <p>776-778 Barking Road London E13 9PJ</p>
+        <p>776-778 Barking Road, London E13 9PJ</p>
       </div>
 
       <div className="info-item">
@@ -403,25 +427,18 @@ const HomePage = () => {
         <p>contact@shimi-infotech.com</p>
       </div>
 
+      {/* SOCIAL ICONS */}
       <div className="social-links">
-        <a href="#">
-          <img src={FacebookIcon} alt="Facebook" />
-        </a>
-        <a href="#">
-          <img src={InstagramIcon} alt="Instagram" />
-        </a>
-        <a href="#">
-          <img src={TwitterIcon} alt="Twitter" />
-        </a>
-        <a href="#">
-          <img src={LinkedinIcon} alt="LinkedIn" />
-        </a>
+        <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+        <a href="#" aria-label="Instagram"><FaInstagram /></a>
+        <a href="#" aria-label="Twitter"><FaTwitter /></a>
+        <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
       </div>
-
     </div>
-    
+
   </div>
 </section>
+
 
 
       {/* ------------------- 11. LATEST BLOG SECTION ------------------- */}

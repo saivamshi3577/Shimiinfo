@@ -2,7 +2,17 @@ import React, { useState } from 'react';
 import Header from './Header'; // Assuming Header component is available
 import Footer from './Footer'; // Assuming Footer component is available
 import './Contact.css';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+
+import { 
+  FaMapMarkerAlt, 
+  FaPhoneAlt, 
+  FaEnvelope,
+  FaLinkedinIn,
+  FaTwitter,
+  FaInstagram,
+  FaFacebookF
+} from "react-icons/fa";
+
 // --------------------------------------------------------
 // DATA ARRAYS
 // --------------------------------------------------------
@@ -138,12 +148,27 @@ const openModal = () => setShowModal(true);
                             </p>
                             <div className="separator"></div>
 
-                            {ukContactDetails.map((item, index) => (
-                                <div className="contact-detail-item" key={index}>
-                                  
-                                    <p>{item.value}</p>
-                                </div>
-                            ))}
+                           <div className="contact-detail-item">
+  <FaMapMarkerAlt className="detail-icon" />
+  <p>International House, 776-778 Barking Road, London E13 9PJ</p>
+</div>
+
+<div className="contact-detail-item">
+  <FaPhoneAlt className="detail-icon" />
+  <p>+44-208 637 3036</p>
+</div>
+
+<div className="contact-detail-item">
+  <FaEnvelope className="detail-icon" />
+  <p>info@shimi-infotech.com</p>
+</div>
+<div className="social-links">
+  <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
+  <a href="#" aria-label="Twitter"><FaTwitter /></a>
+  <a href="#" aria-label="Instagram"><FaInstagram /></a>
+  <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+</div>
+
                         </div>
                     </div>
                 </div>
